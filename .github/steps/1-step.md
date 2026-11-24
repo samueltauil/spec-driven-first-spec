@@ -1,5 +1,7 @@
 ## Step 1: Frame the problem in a proposal
 
+<img width="800" alt="Exercise 4 of the Spec-Driven Delivery workshop: Draft Your First Spec. Frame an unfamiliar problem as a validated change, and decide whether it is ready to build. The focus is on Intent, Requirement and Scenario." src="../images/banner.png">
+
 Welcome back to the Contoso Health Plan delivery team, @{{ login }}! :wave: You've traced a loop, found missing rules and delivered an approved behavior. Now your lead hands you a problem nobody has specified yet and asks for a first spec by the end of the session. Copilot will be your drafting partner, but every decision in this exercise is yours.
 
 ### 📖 Theory: A proposal frames the change
@@ -20,9 +22,15 @@ Choose one of two problems. Both use fictional organizations and synthetic data 
 
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/{{ full_repo_name }}?quickstart=1)
 
-1. On the codespace page, check that the repository is `{{ full_repo_name }}`, your copy, and not the original exercise. Then create the codespace and wait for the terminal at the bottom to report that packages were added. The first start takes about 2 to 4 minutes.
+1. On the codespace page, check that the repository is `{{ full_repo_name }}`, your copy, and not the original exercise. Then create the codespace.
 
-1. In the terminal, create a branch for your work.
+1. Wait for the editor to open. The first start takes about 2 to 4 minutes, because the codespace installs everything this exercise needs before it opens.
+
+   > ⏳ **Wait:** You are ready when the bottom-left corner of the editor shows **Codespaces** followed by your codespace's name.
+
+   <img width="400" alt="The bottom-left corner of the editor's Status Bar showing Codespaces followed by a generated codespace name" src="../images/codespaces-status.png">
+
+1. Open a terminal with `` Ctrl+` `` (`` ⌃` `` on Mac), or from the menu (☰) at the top left with **Terminal** > **New Terminal**. Then create a branch for your work.
 
    > ![Terminal command](https://img.shields.io/badge/Terminal-text?style=flat&logo=gnometerminal&labelColor=1f2328&color=eee)
    >
@@ -35,9 +43,13 @@ Choose one of two problems. Both use fictional organizations and synthetic data 
 <details>
 <summary>Having trouble? 🤷</summary><br/>
 
-- **No terminal is visible:** Open one from the editor menu with **Terminal** > **New Terminal**, or press `` Ctrl+` `` (`` ⌃` `` on Mac).
+- **No terminal is visible:** In the panel at the bottom of the editor, select the **TERMINAL** tab. If there is no panel, press `` Ctrl+` `` (`` ⌃` `` on Mac).
+
+  <img width="460" alt="The editor's bottom panel with the TERMINAL tab selected, next to PROBLEMS, OUTPUT, DEBUG CONSOLE and PORTS" src="../images/terminal-tab.png">
 
 - **The codespace opened the original exercise:** Close that tab and use the button above, which points to your copy. You can also start one from your repository page: **Code** > **Codespaces** > **Create codespace on main**.
+
+- **A command says a package is missing:** The setup did not finish. Run `npm ci` in the terminal, then try again.
 
 - **You can't choose:** Pick the option furthest from your daily work. An unfamiliar problem shows you which questions you skip when the domain feels obvious.
 

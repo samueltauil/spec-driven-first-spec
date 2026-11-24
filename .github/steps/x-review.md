@@ -2,7 +2,7 @@
 
 _Congratulations, you've completed this exercise and the workshop! You turned an unfamiliar problem into a validated OpenSpec change and made an honest Ready to build decision._
 
-<img src="https://octodex.github.com/images/jetpacktocat.png" alt="Jetpacktocat celebrating" width="200" align="right">
+<img src="https://octodex.github.com/images/mona-the-rivetertocat.png" alt="Mona the Rivetertocat celebrating" width="200" align="right">
 
 Here's a recap of what you accomplished:
 
@@ -47,3 +47,5 @@ With your team, pick one real backlog item that is about to be planned. In your 
 - Read [Writing good specs](https://github.com/Fission-AI/OpenSpec/blob/main/docs/writing-specs.md) and [Team workflow](https://github.com/Fission-AI/OpenSpec/blob/main/docs/team-workflow.md) in the OpenSpec documentation.
 - Improve how you ask Copilot for drafts with [Prompt engineering for GitHub Copilot Chat](https://docs.github.com/en/copilot/concepts/prompting/prompt-engineering).
 - Explore more [GitHub Skills exercises](https://learn.github.com/skills).
+
+<img width="800" alt="Workshop map: four exercises in a row, Trace the loop, Find the missing rules, Deliver a behavior and Draft your first spec. Exercise 4 is highlighted: you have completed the workshop." src="../images/workshop-map.png">

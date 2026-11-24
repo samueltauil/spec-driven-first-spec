@@ -1,5 +1,7 @@
 # Draft Your First Spec
 
+<img width="800" alt="Exercise 4 of the Spec-Driven Delivery workshop: Draft Your First Spec. Frame an unfamiliar problem as a validated change, and decide whether it is ready to build. The focus is on Intent, Requirement and Scenario." src=".github/images/banner.png">
+
 _Turn an unfamiliar business problem into a validated OpenSpec change, and decide honestly whether it is ready to build._
 
 ## Welcome
@@ -20,6 +22,8 @@ In this exercise, you will:
 1. Record capability confirmations, edge cases, measures and a ready or not ready decision, then open a pull request.
 
 This is exercise 4 of 4 in the **Spec-Driven Delivery with OpenSpec, Gherkin and GitHub Copilot** workshop. All organizations, people and data in it are fictional.
+
+<img width="800" alt="Workshop map: four exercises in a row. Exercise 4, Draft your first spec, is highlighted as You are here, after Trace the loop, Find the missing rules and Deliver a behavior." src=".github/images/workshop-map.png">
 
 ### How to start this exercise
 

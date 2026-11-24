@@ -6,6 +6,8 @@ Your spec validates, @{{ login }}! :tada: But valid is not the same as ready. Be
 
 **Ready to build** is a human gate: the scope is bounded, named people have answered the material questions, assumed capabilities are confirmed with evidence, and every scenario has synthetic test data with a source and an owner. An unconfirmed capability blocks the gate, and an AI answer is not confirmation, so **not ready** with named blockers, owners and next actions is a respectable, useful result. To show later whether the change helped, record one or two delivery measures now: what is counted, the baseline period, the source, the owner and when the baseline will be available. Never invent a baseline: write `unknown — owner to provide` and treat it as a collection task, not as zero.
 
+<img width="800" alt="The Ready to build gate. The gate asks four things: scope is bounded, because the proposal and its non-goals are agreed; questions are answered by named people; capabilities are confirmed by a named role with evidence; and every scenario has synthetic test data with a source and an owner. A person then decides. Ready: build it and track the measures you chose. Not ready: name each blocker, its owner and the next action. Measures record what is counted, the baseline period, the source and the owner; with no baseline yet, write who collects it. An AI answer is not confirmation." src="../images/readiness-gate.png">
+
 ### ⌨️ Activity 1: Complete the readiness record
 
 1. Copy the readiness template into your change folder as `readiness.md`. Use the line for your option, or your own folder name.
@@ -72,6 +74,10 @@ Your spec validates, @{{ login }}! :tada: But valid is not the same as ready. Be
 ### ⌨️ Activity 3: Open a pull request
 
 1. In your browser, go to your repository, `{{ full_repo_name }}`. Open the **Pull requests** tab and [create a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) with `main` as the base branch and `first-spec` as the compare branch. Give it a title that names your change.
+
+   > 💡 **Tip:** If a **Compare & pull request** banner appears for `first-spec`, you can use it instead.
+
+   <img width="600" alt="A repository page with a yellow banner about a branch with recent pushes and a green Compare and pull request button. The branch name in the screenshot is an example." src="../images/compare-pull-request.png">
 
 1. Wait a moment for Mona to check your work, provide feedback, and share the next lesson.
 
