@@ -1,6 +1,6 @@
 # Draft Your First Spec
 
-<img width="800" alt="Exercise 4 of the Spec-Driven Delivery workshop: Draft Your First Spec. Frame an unfamiliar problem as a validated change, and decide whether it is ready to build. The focus is on Intent, Requirement and Scenario." src=".github/images/banner.png">
+<img width="800" alt="Exercise 4 of 4 of the Spec-Driven Delivery workshop: Draft Your First Spec. Frame an unfamiliar problem as a validated change, and decide whether it is ready to build. Tools: Codespaces, GitHub Copilot and OpenSpec. Focus of this exercise: Intent, Requirement and Scenario." src=".github/images/banner.png">
 
 _Turn an unfamiliar business problem into a validated OpenSpec change, and decide honestly whether it is ready to build._
 
@@ -12,7 +12,7 @@ _Turn an unfamiliar business problem into a validated OpenSpec change, and decid
 - **Prerequisites**:
   - Comfort with branches, commits and pull requests. If they are new to you, start with [Introduction to GitHub](https://github.com/skills/introduction-to-github).
   - Access to [GitHub Codespaces](https://docs.github.com/en/codespaces/overview). Personal accounts include monthly free usage.
-  - [GitHub Copilot](https://github.com/features/copilot) with Copilot Chat. Copilot Free is enough.
+  - [GitHub Copilot](https://github.com/features/copilot) with Copilot Chat. Copilot Free works, but its monthly allowance is limited, and the full workshop uses many prompts.
 - **How long**: This exercise takes about 60 minutes to complete.
 
 In this exercise, you will:
@@ -23,7 +23,7 @@ In this exercise, you will:
 
 This is exercise 4 of 4 in the **Spec-Driven Delivery with OpenSpec, Gherkin and GitHub Copilot** workshop. All organizations, people and data in it are fictional.
 
-<img width="800" alt="Workshop map: four exercises in a row. Exercise 4, Draft your first spec, is highlighted as You are here, after Trace the loop, Find the missing rules and Deliver a behavior." src=".github/images/workshop-map.png">
+<img width="800" alt="Workshop map, Spec-driven delivery workshop: four exercises, one delivery loop. 1, Trace the loop: intent to evidence. 2, Find the missing rules: before you build. 3, Deliver a behavior: test-first, with Copilot. 4, Draft your first spec: capstone. Exercise 4 is highlighted: You are here." src=".github/images/workshop-map.png">
 
 ### How to start this exercise
 

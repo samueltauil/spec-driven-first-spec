@@ -13,13 +13,13 @@ A **spec delta** lives at `openspec/changes/your-change/specs/your-capability/sp
    <details>
    <summary>Show the answer</summary>
 
-   **GIVEN**, **WHEN** and **THEN**. **MUST** or **SHALL**, in capitals. If you want to see them in place, open `openspec/specs/member-eligibility/spec.md`, or look at the example from exercise 2:
+   **GIVEN**, **WHEN** and **THEN**. **MUST** or **SHALL**, in capitals. If you want to see them in place, open `openspec/specs/member-eligibility/spec.md`, or look at this example:
 
    <img width="800" alt="Anatomy of a testable requirement. A spec delta starts with ADDED Requirements, which says how the change affects the current spec. A Requirement heading holds one rule, written with MUST or SHALL. Each requirement needs at least one Scenario heading; exception scenarios catch the costly gaps. Each scenario has GIVEN, WHEN and THEN steps: context, event, and a result someone can observe. openspec validate --strict checks the format; people check that each rule is right." src="../images/requirement-anatomy.png">
 
    </details>
 
-1. Write your own prompt asking Copilot to challenge your proposal with edge cases. Option A must cover zero, one and multiple matches; option B must cover normal intake and all four exceptions.
+1. Write your own prompt asking Copilot to challenge your proposal with edge cases. Option A must cover zero, one and multiple matches; option B must cover normal intake and the unreadable, incomplete, misrouted and duplicate documents.
 
    > 💡 **Tip:** Name your proposal and intent brief, tell Copilot not to write code, and ask it to keep unanswered outcomes as open decisions instead of choosing for you.
 
@@ -28,7 +28,7 @@ A **spec delta** lives at `openspec/changes/your-change/specs/your-capability/sp
 
    - **Option A:** Challenge our candidate matching rule with collisions across source systems, missing fields and zero, one or multiple candidates. Ask what staff may see and do for each result and who resolves ambiguity. After our answers, draft at least three concrete Given/When/Then scenarios, including edge cases. Keep unanswered outcomes marked as open decisions.
 
-   - **Option B:** Challenge our draft with unreadable, incomplete, misrouted and duplicate documents, not just normal intake. Ask what is observed, who acts next, what happens to attachment, pages and receipt clocks, and what happens if a receiving queue is unavailable. After our answers, draft concrete Given/When/Then scenarios covering the happy path and all four exceptions.
+   - **Option B:** Challenge our draft with unreadable, incomplete, misrouted and duplicate documents, not just normal intake. Ask what is observed, who acts next, what happens to attachment, pages and receipt clocks, and what happens if a receiving queue is unavailable. After our answers, draft concrete Given/When/Then scenarios covering the happy path and the unreadable, incomplete, misrouted and duplicate documents.
 
    </details>
 
@@ -75,14 +75,14 @@ A **spec delta** lives at `openspec/changes/your-change/specs/your-capability/sp
 
 1. Save, commit with your own message, and push to `first-spec` as you did in step 1.
 
-1. Wait a moment for Mona to check your work, provide feedback, and share the next lesson.
+1. Go back to this issue in your browser. Wait a moment for Mona to check your work, provide feedback, and share the next lesson.
 
 <details>
 <summary>Having trouble? 🤷</summary><br/>
 
 - **`should contain SHALL or MUST`:** Write the keyword in capitals in the requirement text, on the lines between the `### Requirement:` heading and its first scenario.
 
-- **`must have at least one scenario`:** Scenario headings need exactly four `#` characters: `#### Scenario:`.
+- **`must include at least one scenario`:** Scenario headings need exactly four `#` characters: `#### Scenario:`.
 
 - **`Change must have at least one delta`:** Check the path, `specs/your-capability/spec.md` inside your change folder, and the heading `## ADDED Requirements`.
 

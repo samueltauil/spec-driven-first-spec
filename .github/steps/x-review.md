@@ -10,7 +10,7 @@ Here's a recap of what you accomplished:
 - You wrote requirements with MUST or SHALL and at least three scenarios, including edge cases, that pass strict validation.
 - You recorded capability confirmations, dependencies, edge cases, test data and measures, and you made a reasoned ready or not ready decision.
 
-Throughout, Copilot drafted and you decided. Your pull request stays open for your team to read. You can merge it or close it; the exercise is complete either way.
+Throughout, Copilot drafted and you decided. Mona checked that your files have the right structure; whether the rules and the decision are right is for your team to judge. Your pull request stays open for your team to read. You can merge it or close it; the exercise is complete either way.
 
 ### Check your understanding
 
@@ -24,9 +24,9 @@ Not necessarily. Strict validation checks structure: requirements with MUST or S
 </details>
 
 <details>
-<summary>Copilot says the lookup can search by record number and service date. What do you write under Capability confirmation?</summary><br/>
+<summary>Copilot says a capability your spec needs already exists, such as a lookup by record number or an OCR service. What do you write under Capability confirmation?</summary><br/>
 
-`unconfirmed`, plus the role that can confirm it and how, such as "Engineering lead, Records Platform: confirm in the lookup's interface documentation". Until that person confirms it, the capability blocks the gate.
+`unconfirmed`, plus the role that can confirm it and how, such as "Engineering lead, Records Platform: confirm in the lookup's interface documentation". Until that role confirms it with evidence, the capability blocks the gate.
 
 </details>
 
@@ -48,4 +48,4 @@ With your team, pick one real backlog item that is about to be planned. In your 
 - Improve how you ask Copilot for drafts with [Prompt engineering for GitHub Copilot Chat](https://docs.github.com/en/copilot/concepts/prompting/prompt-engineering).
 - Explore more [GitHub Skills exercises](https://learn.github.com/skills).
 
-<img width="800" alt="Workshop map: four exercises in a row, Trace the loop, Find the missing rules, Deliver a behavior and Draft your first spec. Exercise 4 is highlighted: you have completed the workshop." src="../images/workshop-map.png">
+<img width="800" alt="Workshop map, Spec-driven delivery workshop: four exercises, one delivery loop. 1, Trace the loop: intent to evidence. 2, Find the missing rules: before you build. 3, Deliver a behavior: test-first, with Copilot. 4, Draft your first spec: capstone. Exercise 4 is highlighted: You are here." src="../images/workshop-map.png">

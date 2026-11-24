@@ -10,12 +10,21 @@ Your spec validates, @{{ login }}! :tada: But valid is not the same as ready. Be
 
 ### ⌨️ Activity 1: Complete the readiness record
 
-1. Copy the readiness template into your change folder as `readiness.md`. Use the line for your option, or your own folder name.
+1. Copy the readiness template into your change folder as `readiness.md`. Run only the command for your option.
+
+   **Option A: Record identification**
 
    > ![Terminal command](https://img.shields.io/badge/Terminal-text?style=flat&logo=gnometerminal&labelColor=1f2328&color=eee)
    >
    > ```bash
    > cp worksheets/readiness-template.md openspec/changes/add-record-identification/readiness.md
+   > ```
+
+   **Option B: Inbound document intake**
+
+   > ![Terminal command](https://img.shields.io/badge/Terminal-text?style=flat&logo=gnometerminal&labelColor=1f2328&color=eee)
+   >
+   > ```bash
    > cp worksheets/readiness-template.md openspec/changes/add-inbound-document-intake/readiness.md
    > ```
 

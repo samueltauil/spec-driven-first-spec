@@ -10,12 +10,20 @@
   "updateContentCommand": "npm ci",
   "customizations": {
     "codespaces": {
-      "openFiles": ["intent/option-a-record-identification.md"]
+      "openFiles": [
+        "intent/option-a-record-identification.md",
+        "intent/option-b-document-intake.md"
+      ]
     },
     "vscode": {
       "extensions": [
         "GitHub.copilot-chat"
-      ]
+      ],
+      "settings": {
+        "search.exclude": {
+          ".github/**": true
+        }
+      }
     }
   }
 }

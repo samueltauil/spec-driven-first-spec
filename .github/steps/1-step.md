@@ -1,8 +1,8 @@
 ## Step 1: Frame the problem in a proposal
 
-<img width="800" alt="Exercise 4 of the Spec-Driven Delivery workshop: Draft Your First Spec. Frame an unfamiliar problem as a validated change, and decide whether it is ready to build. The focus is on Intent, Requirement and Scenario." src="../images/banner.png">
+<img width="800" alt="Exercise 4 of 4 of the Spec-Driven Delivery workshop: Draft Your First Spec. Frame an unfamiliar problem as a validated change, and decide whether it is ready to build. Tools: Codespaces, GitHub Copilot and OpenSpec. Focus of this exercise: Intent, Requirement and Scenario." src="../images/banner.png">
 
-Welcome back to the Contoso Health Plan delivery team, @{{ login }}! :wave: You've traced a loop, found missing rules and delivered an approved behavior. Now your lead hands you a problem nobody has specified yet and asks for a first spec by the end of the session. Copilot will be your drafting partner, but every decision in this exercise is yours.
+Welcome to the Contoso Health Plan delivery team, @{{ login }}! :wave: In the earlier exercises of this workshop, someone else framed each problem. Now your lead hands you a problem nobody has specified yet and asks for a first spec by the end of the session. Copilot will be your drafting partner, but every decision in this exercise is yours.
 
 ### 📖 Theory: A proposal frames the change
 
@@ -22,7 +22,7 @@ Choose one of two problems. Both use fictional organizations and synthetic data 
 
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/{{ full_repo_name }}?quickstart=1)
 
-1. On the codespace page, check that the repository is `{{ full_repo_name }}`, your copy, and not the original exercise. Then create the codespace.
+1. On the codespace page, check that the repository is `{{ full_repo_name }}`, your copy, and not the original exercise. Then select **Create new codespace**. If you already have a codespace for this repository, the page offers **Resume this codespace** instead; that works too.
 
 1. Wait for the editor to open. The first start takes about 2 to 4 minutes, because the codespace installs everything this exercise needs before it opens.
 
@@ -111,6 +111,8 @@ Choose one of two problems. Both use fictional organizations and synthetic data 
 <summary>Having trouble? 🤷</summary><br/>
 
 - **Copilot wrote a whole spec or code:** Ignore it and repeat the first sentence of the prompt: do not write code or edit files. You are drafting the proposal, not the solution.
+
+- **Copilot stops answering or says you've reached a limit:** The interview only helps you think. Answer the open questions at the end of your intent brief yourself, then write the proposal.
 
 - **Copilot answers without reading the brief:** Add the file to the chat: type `#` in the chat box and pick the intent brief.
 
