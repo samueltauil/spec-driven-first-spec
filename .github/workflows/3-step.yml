@@ -1,0 +1,246 @@
+name: Step 3 # Last step of the exercise
+
+on:
+  # Manual re-run for facilitators and testing.
+  workflow_dispatch:
+  # The learner opens a pull request; every later push to it is checked again.
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+# Least privilege: no default permissions; each job asks only for what it uses.
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+env:
+  REVIEW_FILE: ".github/steps/x-review.md"
+
+jobs:
+  find_exercise:
+    name: Find Exercise Issue
+    permissions:
+      issues: read # locate the exercise issue
+    uses: skills/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.9.3
+
+  check_step_work:
+    name: Check step work
+    runs-on: ubuntu-latest
+    needs: [find_exercise]
+    permissions:
+      contents: read # read the learner's files
+      issues: write # update Mona's feedback comment
+      # No actions: write. A learner-triggered job must not enable or disable workflows.
+    env:
+      ISSUE_REPOSITORY: ${{ github.repository }}
+      ISSUE_NUMBER: ${{ needs.find_exercise.outputs.issue-number }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Get response templates
+        uses: actions/checkout@v6
+        with:
+          repository: skills/exercise-toolkit
+          path: exercise-toolkit
+          ref: v0.9.3
+
+      - name: Find last comment
+        id: find-last-comment
+        uses: peter-evans/find-comment@v4
+        with:
+          repository: ${{ env.ISSUE_REPOSITORY }}
+          issue-number: ${{ env.ISSUE_NUMBER }}
+          comment-author: github-actions[bot] # never target the learner's own comment
+          direction: last
+
+      - name: Update comment - checking work
+        uses: GrantBirki/comment@v2.1.1
+        with:
+          repository: ${{ env.ISSUE_REPOSITORY }}
+          issue-number: ${{ env.ISSUE_NUMBER }}
+          comment-id: ${{ steps.find-last-comment.outputs.comment-id }}
+          file: exercise-toolkit/markdown-templates/step-feedback/checking-work.md
+          edit-mode: replace
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Install the OpenSpec CLI
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      # START: Check practical exercise
+      # The learner names the change, so each check first finds the single change folder.
+      # Readiness checks read one section of readiness.md and ignore bold markers and bullets.
+
+      - name: Check readiness.md is in the change folder
+        id: check-readiness-file
+        continue-on-error: true
+        run: |
+          dir=$(find openspec/changes -mindepth 1 -maxdepth 1 -type d ! -name archive 2>/dev/null | sort || true)
+          [ "$(echo "$dir" | grep -c .)" -eq 1 ] || { echo "Expected one change folder, found: ${dir:-none}"; exit 1; }
+          echo "Looking for $dir/readiness.md"
+          [ -f "$dir/readiness.md" ]
+
+      - name: Check the readiness record states a decision
+        id: check-decision
+        continue-on-error: true
+        run: |
+          dir=$(find openspec/changes -mindepth 1 -maxdepth 1 -type d ! -name archive 2>/dev/null | sort || true)
+          [ "$(echo "$dir" | grep -c .)" -eq 1 ] && [ -f "$dir/readiness.md" ] || { echo "No readiness.md in a single change folder"; exit 1; }
+          line=$(tr -d '\r' < "$dir/readiness.md" | sed -E 's/[*_`]//g; s/^[[:space:]]*([-+>][[:space:]]*)*//' | grep -iE '^((gate|ready to build)[[:space:]]+)?decision[[:space:]]*:[[:space:]]*(ready|not[[:space:]]+ready)([^a-z]|$)' | grep -viE 'ready[[:space:]]*(/|or)[[:space:]]*not[[:space:]]+ready' | head -n 1 || true)
+          echo "Decision: ${line:-none}"
+          [ -n "$line" ]
+
+      - name: Check the decision gives a reason
+        id: check-reasons
+        continue-on-error: true
+        run: |
+          dir=$(find openspec/changes -mindepth 1 -maxdepth 1 -type d ! -name archive 2>/dev/null | sort || true)
+          [ "$(echo "$dir" | grep -c .)" -eq 1 ] && [ -f "$dir/readiness.md" ] || { echo "No readiness.md in a single change folder"; exit 1; }
+          text=$(tr -d '\r' < "$dir/readiness.md" | awk 'tolower($0) ~ /^## +((gate|ready to build) +)?decision/ {f = 1; next} /^##? / {f = 0} f' | sed -E 's/[*_`]//g; s/^[[:space:]]*([-+>][[:space:]]*)*//' | awk 'tolower($0) ~ /^(decided by|decision owner|missing)/ {r = 0} tolower($0) ~ /^reasons?[ \t]*:/ {r = 1; sub(/^[^:]*:/, "")} r' | sed -E 's/^[[:space:]]+//; s/[[:space:]]+$//' | grep -v '^$' || true)
+          echo "Reasons: ${text:-none}"
+          [ "${#text}" -ge 15 ]
+
+      - name: Check at least three edge cases are listed
+        id: check-edge-cases
+        continue-on-error: true
+        run: |
+          dir=$(find openspec/changes -mindepth 1 -maxdepth 1 -type d ! -name archive 2>/dev/null | sort || true)
+          [ "$(echo "$dir" | grep -c .)" -eq 1 ] && [ -f "$dir/readiness.md" ] || { echo "No readiness.md in a single change folder"; exit 1; }
+          count=$(tr -d '\r' < "$dir/readiness.md" | awk 'tolower($0) ~ /^## +edge/ {f = 1; next} /^##? / {f = 0} f' | grep -cE '^[[:space:]]*([-*+]|[0-9]+[.)])[[:space:]]+[^[:space:]].{2,}' || true)
+          echo "Edge cases: ${count:-0}"
+          [ "${count:-0}" -ge 3 ]
+
+      - name: Check at least one measure is fully recorded
+        id: check-measures
+        continue-on-error: true
+        run: |
+          dir=$(find openspec/changes -mindepth 1 -maxdepth 1 -type d ! -name archive 2>/dev/null | sort || true)
+          [ "$(echo "$dir" | grep -c .)" -eq 1 ] && [ -f "$dir/readiness.md" ] || { echo "No readiness.md in a single change folder"; exit 1; }
+          result=$(tr -d '\r' < "$dir/readiness.md" | awk 'tolower($0) ~ /^## +measures?/ {f = 1; next} /^##? / {f = 0} f' | awk '
+            /^[ \t]*\|/ {
+              rows++
+              line = $0
+              sub(/^[ \t]*\|/, "", line)
+              sub(/\|[ \t]*$/, "", line)
+              if (rows == 1 || line ~ /^[ \t:|-]*$/) next
+              n = split(line, cell, "|")
+              if (n < 5 || tolower(cell[1]) ~ /what is counted/) next
+              ok = 1
+              for (i = 1; i <= 5; i++) {
+                v = cell[i]
+                gsub(/^[ \t]+|[ \t]+$/, "", v)
+                if (v == "" || v ~ /^[-_.?]+$/) ok = 0
+              }
+              if (ok) { filled++; print "Filled row: " $0 }
+            }
+            END { print "Filled rows: " filled + 0 }')
+          echo "$result"
+          echo "$result" | grep -qE '^Filled rows: [1-9]'
+
+      - name: Check the change still passes strict validation
+        id: check-validate
+        continue-on-error: true
+        env:
+          OPENSPEC_TELEMETRY: 0
+        run: |
+          dir=$(find openspec/changes -mindepth 1 -maxdepth 1 -type d ! -name archive 2>/dev/null | sort || true)
+          [ "$(echo "$dir" | grep -c .)" -eq 1 ] || { echo "Expected one change folder, found: ${dir:-none}"; exit 1; }
+          npx --no -- openspec validate "$(basename "$dir")" --type change --strict --no-interactive
+
+      - name: Update comment - step results
+        uses: GrantBirki/comment@v2.1.1
+        with:
+          repository: ${{ env.ISSUE_REPOSITORY }}
+          issue-number: ${{ env.ISSUE_NUMBER }}
+          comment-id: ${{ steps.find-last-comment.outputs.comment-id }}
+          edit-mode: replace
+          file: exercise-toolkit/markdown-templates/step-feedback/step-results-table.md
+          # Tips render only when a check failed. Keep tip text free of single quotes.
+          vars: |
+            step_number: 3
+            results_table:
+              - description: "Your change folder has a readiness.md file"
+                passed: ${{ steps.check-readiness-file.outcome == 'success' }}
+              - description: "readiness.md states a decision: ready or not ready"
+                passed: ${{ steps.check-decision.outcome == 'success' }}
+              - description: "The Decision section gives at least one reason"
+                passed: ${{ steps.check-reasons.outcome == 'success' }}
+              - description: "The Edge cases section lists at least three edge cases"
+                passed: ${{ steps.check-edge-cases.outcome == 'success' }}
+              - description: "The Measures table has at least one row with all five cells filled"
+                passed: ${{ steps.check-measures.outcome == 'success' }}
+              - description: "The change still passes openspec validate --strict"
+                passed: ${{ steps.check-validate.outcome == 'success' }}
+            tips: ${{ contains(steps.*.outcome, 'failure') && '["Copy worksheets/readiness-template.md into your change folder as readiness.md, next to proposal.md.", "Write one decision right after the label, such as Decision: not ready, and at least one reason under Reasons. Not ready with named blockers is a valid answer.", "Fill every cell of at least one measures row. If a value is not known, write unknown - owner to provide instead of inventing a number.", "Run npm run validate:spec, fix any errors, then commit and push to first-spec again. Mona checks the pull request on every push."]' || '[]' }}
+
+      # END: Check practical exercise
+      - name: Fail job if not all checks passed
+        if: contains(steps.*.outcome, 'failure')
+        run: exit 1
+
+  post_review_content:
+    name: Post review content
+    needs: [find_exercise, check_step_work] # grading must gate the review
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read # checkout review content
+      actions: write # disable this final workflow
+      issues: write # post the review comments
+    env:
+      ISSUE_REPOSITORY: ${{ github.repository }}
+      ISSUE_NUMBER: ${{ needs.find_exercise.outputs.issue-number }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Get response templates
+        uses: actions/checkout@v6
+        with:
+          repository: skills/exercise-toolkit
+          path: exercise-toolkit
+          ref: v0.9.3
+
+      - name: Create comment - step finished - final review next
+        uses: GrantBirki/comment@v2.1.1
+        with:
+          repository: ${{ env.ISSUE_REPOSITORY }}
+          issue-number: ${{ env.ISSUE_NUMBER }}
+          file: exercise-toolkit/markdown-templates/step-feedback/lesson-review.md
+
+      - name: Create comment - add review content
+        uses: GrantBirki/comment@v2.1.1
+        with:
+          repository: ${{ env.ISSUE_REPOSITORY }}
+          issue-number: ${{ env.ISSUE_NUMBER }}
+          file: ${{ env.REVIEW_FILE }}
+          vars: |
+            login: ${{ github.actor }}
+            full_repo_name: ${{ github.repository }}
+
+      - name: Disable current workflow
+        run: gh workflow disable "${{ github.workflow }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  finish_exercise:
+    name: Finish Exercise
+    needs: [find_exercise, post_review_content]
+    permissions:
+      contents: write # the toolkit commits the congratulations README
+      issues: write # the toolkit comments on and closes the exercise issue
+    uses: skills/exercise-toolkit/.github/workflows/finish-exercise.yml@v0.9.3
+    with:
+      issue-url: ${{ needs.find_exercise.outputs.issue-url }}
+      exercise-title: "Draft Your First Spec"
