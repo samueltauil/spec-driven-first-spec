@@ -139,7 +139,7 @@ jobs:
                 passed: ${{ steps.check-validate.outcome == 'success' }}
               - description: "The spec delta has at least three #### Scenario: headings"
                 passed: ${{ steps.check-scenarios.outcome == 'success' }}
-            tips: ${{ contains(steps.*.outcome, 'failure') && '["Put the spec delta at specs/your-capability/spec.md inside your change folder, under the heading ## ADDED Requirements.", "Run npm run validate:spec in the terminal and fix every error. Requirements need MUST or SHALL in capitals, and every requirement needs a #### Scenario: with GIVEN, WHEN and THEN.", "Add edge-case scenarios until there are at least three, then commit and push to first-spec again."]' || '[]' }}
+            tips: ${{ contains(steps.*.outcome, 'failure') && '["Put the spec delta at specs/your-capability/spec.md inside your change folder, under the heading ## ADDED Requirements.", "Run npm run validate:spec in the terminal and fix every error and warning. Requirements need MUST or SHALL in capitals, and every requirement needs a #### Scenario: with GIVEN, WHEN and THEN.", "Add edge-case scenarios until there are at least three, then commit and push to first-spec again."]' || '[]' }}
       # END: Check practical exercise
       - name: Fail job if not all checks passed
         if: contains(steps.*.outcome, 'failure')

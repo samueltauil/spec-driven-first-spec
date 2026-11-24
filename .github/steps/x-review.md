@@ -33,7 +33,7 @@ Not necessarily. Strict validation checks structure: requirements with MUST or S
 <details>
 <summary>Your team has no baseline for clarification round-trips. What goes in the measures table?</summary><br/>
 
-What is counted, the baseline period, the source, and `unknown — owner to provide` with an owner and a date. Not zero, and not an estimate: a missing baseline is a collection task.
+What is counted, the baseline period, the source, the owner, and when the baseline will be available, or `unknown — owner to provide` where nobody knows yet. Not zero, and not an estimate: a missing baseline is a collection task.
 
 </details>
 

@@ -65,9 +65,9 @@ Your spec validates, @{{ login }}! :tada: But valid is not the same as ready. Be
 
 1. In the **Decision** section, write your decision after the label, such as `**Decision:** not ready`. Then fill in the reasons, who decided (roles), and what is missing with its owner and next action.
 
-1. Fill at least one row of the **Measures** table. If you don't know a value, write `unknown — owner to provide` instead of a number.
+1. Fill at least one row of the **Measures** table. Don't write a baseline number: **Available by** says when the owner will provide it. If you don't know a value, such as the source or that date, write `unknown — owner to provide` in that cell.
 
-1. Run `npm run validate:spec` once more, then save, commit with your own message, and push to `first-spec`.
+1. Run `npm run validate:spec` once more, then save, commit with your own message, and push to `first-spec`. Mona checks your work after you open the pull request in the next activity.
 
 <details>
 <summary>Having trouble? 🤷</summary><br/>
@@ -101,6 +101,6 @@ Your spec validates, @{{ login }}! :tada: But valid is not the same as ready. Be
 
 - **Mona reported a failed check:** Fix the file, then commit and push to `first-spec` again. Mona checks the pull request again on every push.
 
-- **Mona did not respond:** Check that the pull request targets `main`. You can watch the run in the [Actions tab](https://github.com/{{ full_repo_name }}/actions).
+- **Mona did not respond:** Check that the pull request targets `main`. If you changed the base branch of a pull request you had already opened, Mona doesn't notice: select **Close pull request**, then **Reopen pull request**, or push a new commit to `first-spec`. You can watch the run in the [Actions tab](https://github.com/{{ full_repo_name }}/actions).
 
 </details>

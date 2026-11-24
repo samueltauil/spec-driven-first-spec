@@ -15,6 +15,8 @@ A **spec delta** lives at `openspec/changes/your-change/specs/your-capability/sp
 
    **GIVEN**, **WHEN** and **THEN**. **MUST** or **SHALL**, in capitals. If you want to see them in place, open `openspec/specs/member-eligibility/spec.md`, or look at this example:
 
+   That file is a current spec, so it uses `## Requirements`. Your change is a delta: it uses `## ADDED Requirements` and lives inside your change folder.
+
    <img width="800" alt="Anatomy of a testable requirement. A spec delta starts with ADDED Requirements, which says how the change affects the current spec. A Requirement heading holds one rule, written with MUST or SHALL. Each requirement needs at least one Scenario heading; exception scenarios catch the costly gaps. Each scenario has GIVEN, WHEN and THEN steps: context, event, and a result someone can observe. openspec validate --strict checks the format; people check that each rule is right." src="../images/requirement-anatomy.png">
 
    </details>
@@ -71,7 +73,7 @@ A **spec delta** lives at `openspec/changes/your-change/specs/your-capability/sp
    > npm run validate:spec
    > ```
 
-1. Fix every error until the output reports no failures. Each message names the file and the requirement it found a problem in.
+1. Fix every error and warning until the last line reads `Totals: 2 passed, 0 failed (2 items)`. Strict validation counts warnings, such as `should contain SHALL or MUST`, as failures.
 
 1. Save, commit with your own message, and push to `first-spec` as you did in step 1.
 
@@ -88,6 +90,6 @@ A **spec delta** lives at `openspec/changes/your-change/specs/your-capability/sp
 
 - **Mona counts fewer scenarios than you wrote:** Mona counts `#### Scenario:` headings in your spec delta. A `### Scenario:` heading is ignored.
 
-- **Mona did not respond:** Check that you pushed to `first-spec`. You can watch the run in the [Actions tab](https://github.com/{{ full_repo_name }}/actions).
+- **Mona did not respond:** Check that you pushed to `first-spec` and that your spec delta is inside your change folder, at `openspec/changes/your-change/specs/your-capability/spec.md`, not in `openspec/specs/`. Mona checks only pushes that change a file under `openspec/changes/`. You can watch the run in the [Actions tab](https://github.com/{{ full_repo_name }}/actions).
 
 </details>

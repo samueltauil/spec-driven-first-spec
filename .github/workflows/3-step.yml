@@ -97,7 +97,7 @@ jobs:
         run: |
           dir=$(find openspec/changes -mindepth 1 -maxdepth 1 -type d ! -name archive 2>/dev/null | sort || true)
           [ "$(echo "$dir" | grep -c .)" -eq 1 ] && [ -f "$dir/readiness.md" ] || { echo "No readiness.md in a single change folder"; exit 1; }
-          line=$(tr -d '\r' < "$dir/readiness.md" | sed -E 's/[*_`]//g; s/^[[:space:]]*([-+>][[:space:]]*)*//' | grep -iE '^((gate|ready to build)[[:space:]]+)?decision[[:space:]]*:[[:space:]]*(ready|not[[:space:]]+ready)([^a-z]|$)' | grep -viE 'ready[[:space:]]*(/|or)[[:space:]]*not[[:space:]]+ready' | head -n 1 || true)
+          line=$(tr -d '\r' < "$dir/readiness.md" | sed -E 's/[*_`]//g; s/^[[:space:]]*([-+>][[:space:]]*)*//' | grep -iE '^((gate|ready to build)[[:space:]]+)?decision[[:space:]]*:[[:space:]]*(ready|not[[:space:]]+ready)([^a-z]|$)' | grep -viE 'ready[[:space:]]*(/|or)[[:space:]]*not[[:space:]]+ready|not[[:space:]]+ready[[:space:]]*(/|or)[[:space:]]*ready' | head -n 1 || true)
           echo "Decision: ${line:-none}"
           [ -n "$line" ]
 
@@ -140,7 +140,7 @@ jobs:
               for (i = 1; i <= 5; i++) {
                 v = cell[i]
                 gsub(/^[ \t]+|[ \t]+$/, "", v)
-                if (v == "" || v ~ /^[-_.?]+$/) ok = 0
+                if (v == "" || v ~ /^[-_.?]+$/ || v ~ /^(—|–)+$/) ok = 0
               }
               if (ok) { filled++; print "Filled row: " $0 }
             }

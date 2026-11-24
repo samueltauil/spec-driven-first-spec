@@ -139,10 +139,12 @@ Choose one of two problems. Both use fictional organizations and synthetic data 
 <details>
 <summary>Having trouble? 🤷</summary><br/>
 
-- **Mona says there is not exactly one change folder:** Keep one folder for your option under `openspec/changes/`. Delete any other folder you created, then commit and push again.
+- **`git push` says `src refspec first-spec does not match any`:** The branch was not created, so your commit is on `main`. Run `git switch -c first-spec`, then run `git push -u origin first-spec` again. Your commit comes with you.
+
+- **Mona says there is not exactly one change folder:** Keep only the folder for the option you chose, `add-record-identification` or `add-inbound-document-intake`, and delete the other one. Until there is one folder, Mona also marks the proposal rows as failed; they pass once the extra folder is gone. Then commit and push again.
 
 - **Mona says a section is missing or empty:** Check the headings: `## Why`, `## What Changes` and `## Non-goals`, each followed by your text. The **Why** section needs at least 50 characters.
 
-- **Mona did not respond:** Check that you pushed to the `first-spec` branch and that a file under `openspec/changes/` changed. You can watch the run in the [Actions tab](https://github.com/{{ full_repo_name }}/actions).
+- **Mona did not respond:** Check that `git push` finished without an error, and run `git branch --show-current`. If the branch isn't `first-spec`, run `git switch -c first-spec`, then `git push -u origin first-spec`. You can watch the run in the [Actions tab](https://github.com/{{ full_repo_name }}/actions).
 
 </details>
