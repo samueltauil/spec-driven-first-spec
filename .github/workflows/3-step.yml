@@ -182,7 +182,7 @@ jobs:
                 passed: ${{ steps.check-measures.outcome == 'success' }}
               - description: "The change still passes openspec validate --strict"
                 passed: ${{ steps.check-validate.outcome == 'success' }}
-            tips: ${{ contains(steps.*.outcome, 'failure') && '["Copy worksheets/readiness-template.md into your change folder as readiness.md, next to proposal.md.", "Write one decision right after the label, such as Decision: not ready, and at least one reason under Reasons. Not ready with named blockers is a valid answer.", "Fill every cell of at least one measures row. If a value is not known, write unknown - owner to provide instead of inventing a number.", "Run npm run validate:spec, fix any errors, then commit and push to first-spec again. Mona checks the pull request on every push."]' || '[]' }}
+            tips: ${{ contains(steps.*.outcome, 'failure') && '["Copy worksheets/readiness-template.md into your change folder as readiness.md, next to proposal.md.", "Write one decision right after the label, such as Decision: not ready, and at least one reason under Reasons. Not ready with named blockers is a valid answer.", "Fill every cell of at least one measures row. If a value is not known, write unknown — owner to provide instead of inventing a number.", "Run npm run validate:spec, fix any errors, then commit and push to first-spec again. Mona checks the pull request on every push."]' || '[]' }}
 
       # END: Check practical exercise
       - name: Fail job if not all checks passed

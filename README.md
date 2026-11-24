@@ -13,7 +13,7 @@ _Turn an unfamiliar business problem into a validated OpenSpec change, and decid
   - Comfort with branches, commits and pull requests. If they are new to you, start with [Introduction to GitHub](https://github.com/skills/introduction-to-github).
   - Access to [GitHub Codespaces](https://docs.github.com/en/codespaces/overview). Personal accounts include monthly free usage.
   - [GitHub Copilot](https://github.com/features/copilot) with Copilot Chat. Copilot Free works, but its monthly allowance is limited, and the full workshop uses many prompts.
-- **How long**: This exercise takes about 60 minutes to complete.
+- **How long**: This exercise takes less than 70 minutes to complete.
 
 In this exercise, you will:
 

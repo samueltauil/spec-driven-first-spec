@@ -30,7 +30,7 @@ Choose one of two problems. Both use fictional organizations and synthetic data 
 
    <img width="400" alt="The bottom-left corner of the editor's Status Bar showing Codespaces followed by a generated codespace name" src="../images/codespaces-status.png">
 
-1. Open a terminal with `` Ctrl+` `` (`` ⌃` `` on Mac), or from the menu (☰) at the top left with **Terminal** > **New Terminal**. Then create a branch for your work.
+1. Open a terminal with `` Ctrl+` `` (also on Mac), or from the menu (☰) at the top left with **Terminal** > **New Terminal**. Then create a branch for your work.
 
    > ![Terminal command](https://img.shields.io/badge/Terminal-text?style=flat&logo=gnometerminal&labelColor=1f2328&color=eee)
    >
@@ -43,7 +43,7 @@ Choose one of two problems. Both use fictional organizations and synthetic data 
 <details>
 <summary>Having trouble? 🤷</summary><br/>
 
-- **No terminal is visible:** In the panel at the bottom of the editor, select the **TERMINAL** tab. If there is no panel, press `` Ctrl+` `` (`` ⌃` `` on Mac).
+- **No terminal is visible:** In the panel at the bottom of the editor, select the **TERMINAL** tab. If there is no panel, press `` Ctrl+` `` (also on Mac).
 
   <img width="460" alt="The editor's bottom panel with the TERMINAL tab selected, next to PROBLEMS, OUTPUT, DEBUG CONSOLE and PORTS" src="../images/terminal-tab.png">
 
@@ -57,7 +57,7 @@ Choose one of two problems. Both use fictional organizations and synthetic data 
 
 ### ⌨️ Activity 2: Draft the proposal with Copilot
 
-1. Open Copilot Chat: select the chat icon at the top of the editor, or press `Ctrl+Alt+I` (`⌃⌘I` on Mac).
+1. Open Copilot Chat: select the chat icon at the top of the editor, or press `Ctrl+Alt+I` (`Ctrl+Cmd+I` on Mac).
 
 1. Start the conversation with the product-owner prompt for your option. It asks Copilot to question you instead of writing a solution.
 

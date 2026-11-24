@@ -95,7 +95,7 @@ Your spec validates, @{{ login }}! :tada: But valid is not the same as ready. Be
 
 - **Mona says the decision is missing:** Write the decision on one line, right after the label: `**Decision:** ready` or `**Decision:** not ready`. Write one of the two, not both.
 
-- **Mona says the decision has no reason:** Write at least one reason under **Reasons:**, such as the capability that is still unconfirmed.
+- **Mona says the decision has no reason:** Write at least one reason under the **Reasons:** label, such as the capability that is still unconfirmed.
 
 - **Mona says a measures row is incomplete:** Every cell of at least one row needs a value. `unknown — owner to provide` counts as a value.
 

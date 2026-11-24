@@ -13,9 +13,7 @@ A **spec delta** lives at `openspec/changes/your-change/specs/your-capability/sp
    <details>
    <summary>Show the answer</summary>
 
-   **GIVEN**, **WHEN** and **THEN**. **MUST** or **SHALL**, in capitals. If you want to see them in place, open `openspec/specs/member-eligibility/spec.md`, or look at this example:
-
-   That file is a current spec, so it uses `## Requirements`. Your change is a delta: it uses `## ADDED Requirements` and lives inside your change folder.
+   **GIVEN**, **WHEN** and **THEN**. **MUST** or **SHALL**, in capitals. To see them in place, open `openspec/specs/member-eligibility/spec.md`. That file is a current spec, so it uses `## Requirements`. Your change is a delta: it uses `## ADDED Requirements` and lives inside your change folder, like this example:
 
    <img width="800" alt="Anatomy of a testable requirement. A spec delta starts with ADDED Requirements, which says how the change affects the current spec. A Requirement heading holds one rule, written with MUST or SHALL. Each requirement needs at least one Scenario heading; exception scenarios catch the costly gaps. Each scenario has GIVEN, WHEN and THEN steps: context, event, and a result someone can observe. openspec validate --strict checks the format; people check that each rule is right." src="../images/requirement-anatomy.png">
 
