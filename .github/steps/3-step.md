@@ -86,9 +86,9 @@ Your spec validates, @{{ login }}! :tada: But valid is not the same as ready. Be
 
    > 💡 **Tip:** If a **Compare & pull request** banner appears for `first-spec`, you can use it instead.
 
-   <img width="600" alt="A repository page with a yellow banner about a branch with recent pushes and a green Compare and pull request button. The branch name in the screenshot is an example." src="../images/compare-pull-request.png">
+   <img width="600" alt="A repository page with a yellow banner about a branch with recent pushes and a green Compare and pull request button. The branch name in the screenshot is an example; yours is first-spec." src="../images/compare-pull-request.png">
 
-1. Wait a moment for Mona to check your work, provide feedback, and share the next lesson.
+1. Go back to the exercise issue. Wait a moment for Mona to check your work, provide feedback, and share the next lesson.
 
 <details>
 <summary>Having trouble? 🤷</summary><br/>

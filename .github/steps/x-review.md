@@ -43,9 +43,9 @@ With your team, pick one real backlog item that is about to be planned. In your 
 
 ### What's next?
 
+<img width="800" alt="Workshop map, Spec-driven delivery workshop: four exercises, one delivery loop. 1, Trace the loop: intent to evidence. 2, Find the missing rules: before you build. 3, Deliver a behavior: test-first, with Copilot. 4, Draft your first spec: capstone. Exercise 4 is highlighted: You are here." src="../images/workshop-map.png">
+
 - Run the whole loop on that backlog item with your team: propose, question, decide, deliver against evidence, and keep the living spec current.
 - Read [Writing good specs](https://github.com/Fission-AI/OpenSpec/blob/main/docs/writing-specs.md) and [Team workflow](https://github.com/Fission-AI/OpenSpec/blob/main/docs/team-workflow.md) in the OpenSpec documentation.
 - Improve how you ask Copilot for drafts with [Prompt engineering for GitHub Copilot Chat](https://docs.github.com/en/copilot/concepts/prompting/prompt-engineering).
 - Explore more [GitHub Skills exercises](https://learn.github.com/skills).
-
-<img width="800" alt="Workshop map, Spec-driven delivery workshop: four exercises, one delivery loop. 1, Trace the loop: intent to evidence. 2, Find the missing rules: before you build. 3, Deliver a behavior: test-first, with Copilot. 4, Draft your first spec: capstone. Exercise 4 is highlighted: You are here." src="../images/workshop-map.png">
