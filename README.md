@@ -11,7 +11,7 @@ _Turn an unfamiliar business problem into a validated OpenSpec change, and decid
 - **What you'll build**: A new OpenSpec change with a proposal, a spec delta with at least three scenarios and a readiness record, shared in a pull request.
 - **Prerequisites**:
   - Comfort with branches, commits and pull requests. If they are new to you, start with [Introduction to GitHub](https://github.com/skills/introduction-to-github).
-  - Access to [GitHub Codespaces](https://docs.github.com/en/codespaces/overview). Personal accounts include monthly free usage.
+  - Access to [GitHub Codespaces](https://docs.github.com/en/codespaces/overview). Personal accounts include monthly free usage. If you can't use Codespaces, work in VS Code on your computer instead: see the workshop's [local setup guide](https://github.com/samueltauil/spec-driven-delivery-workshop/blob/main/local-setup.md).
   - [GitHub Copilot](https://github.com/features/copilot) with Copilot Chat. Copilot Free works, but its monthly allowance is limited, and the full workshop uses many prompts.
 - **How long**: This exercise takes less than 70 minutes to complete.
 
